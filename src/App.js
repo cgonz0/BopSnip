@@ -3,12 +3,14 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { FormGroup, FormControl, InputGroup, Glyphicon} from 'react-bootstrap';
+import Profile from './Profile';
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      query: ''
+      query: '',
+      artist: null
     };
     // this.handleChange = this.handleChange.bind(this);
     // this.handleClick = this.handleClick.bind(this);
@@ -26,7 +28,7 @@ class App extends Component {
     const FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
     const accessToken = '';
 
-    const myHeaders = new Headers();
+    // const myHeaders = new Headers();
 
     const myOptions = {
       method: 'GET',
@@ -39,8 +41,13 @@ class App extends Component {
 
     fetch(FETCH_URL, myOptions)
       .then(response => response.json())
-      .then(json => console.log(json))
+      .then(json => {
+        const artist = json.artists.items[0];
+        console.log('artist', artist);
+        this.setState({artist});
+      });
   }
+
 
 
   handleEnterKeyPress = event => {
@@ -74,14 +81,9 @@ class App extends Component {
         </InputGroup>
        </FormGroup>
 
-       <div className="Profile">
-        <div>
-          Artist Photo
-        </div>
-        <div>
-          Artist Name
-        </div>
-       </div>
+       <Profile
+        artist={this.state.artist}
+       />
 
        <div className="Gallery">
         <div>Gallery</div>

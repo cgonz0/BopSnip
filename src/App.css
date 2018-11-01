@@ -15,3 +15,35 @@ body {
 /* .input-group {
   margin: 0 auto;
 } */
+
+.profile {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 25px;
+}
+
+.profile-info {
+  margin-left: 20px;
+  text-align: left;
+}
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border: 2px solid #9cdcdd;
+  border-radius: 75px;
+  object-fit: cover;
+}
+
+.profile-name {
+  font-size: 26px;
+}
+
+.profile-followers {
+  font-size: 18px;
+}
+
+.profile-genres {
+  font-size: 14px;
+  margin-top: 10px;
+}
