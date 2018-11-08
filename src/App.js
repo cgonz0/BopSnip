@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import { FormGroup, FormControl, InputGroup, Glyphicon} from 'react-bootstrap';
 import Profile from './Profile';
+import Gallery from './Gallery';
 
 class App extends Component {
   constructor(props){
@@ -29,7 +30,7 @@ class App extends Component {
     const BASE_URL = 'https://api.spotify.com/v1/search?';
     let FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
     const ALBUM_URL = 'https://api.spotify.com/v1/artists/';
-    const accessToken = 'BQBNEZRy801yFecHAcfR8OKPJSnfP-BCcSUaEaN4utrqGIqyAElwOVUfuw77sSML0s_iABMghLmC_GRVFPjbQKys_7vJjF611ULHLpJHX7DUzrI67uKu51iO02LctT8VCJFqdal8xOxUS5IOtce4syHqH_bvHYVm_Hvj&refresh_token=AQA2RqwKDqC1U8XS_fHocSlAHikkyhIOWiMYzN14d1mlFX7tGFpH7tP2Zx9_MNUoUY0fkVBzat3fiAVPJ-LaUjoiDT91btRDrROJk8krwcm0fXYwXFZ1Vf9qtDKYXnqe__YWjg';
+    const accessToken = '';
 
     // const myHeaders = new Headers();
 
@@ -63,12 +64,8 @@ class App extends Component {
 
           this.setState({tracks});
         })
-
-
-
       });
   }
-
 
 
   handleEnterKeyPress = event => {
@@ -105,12 +102,13 @@ class App extends Component {
        {
          this.state.artist !== null
           ?<div>
-             <Profile
+            <Profile
               artist={this.state.artist}
-             />
-            <div className="Gallery">
-            <div>Gallery</div>
-            </div>
+            />
+            <Gallery
+            //pass tracks to state
+              tracks={this.state.tracks}
+            />
           </div>
 
           : <div></div>
