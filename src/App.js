@@ -26,7 +26,7 @@ class App extends Component {
   }
 
   search() {
-    console.log('this.state', this.state)
+    // console.log('this.state', this.state)
     const BASE_URL = 'https://api.spotify.com/v1/search?';
     let FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
     const ALBUM_URL = 'https://api.spotify.com/v1/artists/';
@@ -47,7 +47,7 @@ class App extends Component {
       .then(response => response.json())
       .then(json => {
         const artist = json.artists.items[0];
-        console.log('artist', artist);
+        // console.log('artist', artist);
         this.setState({artist});
 
         //Fetch albums
@@ -55,7 +55,7 @@ class App extends Component {
         fetch(FETCH_URL, myOptions)
         .then(response => response.json())
         .then(json => {
-          console.log('artist top tracks:', json);
+          // console.log('artist top tracks:', json);
           //set tracks to state
 
           //variable name and key we want to access within function or obj is same (useful for multiple keys:
