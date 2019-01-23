@@ -1,10 +1,10 @@
-
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { FormGroup, FormControl, InputGroup, Glyphicon} from 'react-bootstrap';
 import Profile from './Profile';
 import Gallery from './Gallery';
+import Spotify from './Spotify';
 
 class App extends Component {
   constructor(props){
@@ -26,19 +26,18 @@ class App extends Component {
   }
 
   search() {
-    // console.log('this.state', this.state)
+
+    const accessToken = Spotify.getAccessToken();
+
     const BASE_URL = 'https://api.spotify.com/v1/search?';
     let FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
     const ALBUM_URL = 'https://api.spotify.com/v1/artists/';
-    const accessToken = '';
-
-    // const myHeaders = new Headers();
 
     const myOptions = {
       method: 'GET',
       headers:  {
         Authorization: `Bearer ${accessToken}`
-     },
+      },
       mode: 'cors',
       cache: 'default'
     };
@@ -65,8 +64,7 @@ class App extends Component {
           this.setState({tracks});
         })
       });
-  }
-
+    }
 
   handleEnterKeyPress = event => {
     if (event.key === 'Enter') {
@@ -77,7 +75,6 @@ class App extends Component {
   handleClick = event => {
     this.search()
   }
-
 
   render() {
     return (
