@@ -37,9 +37,7 @@ class App extends Component {
       method: 'GET',
       headers:  {
         Authorization: `Bearer ${accessToken}`
-      },
-      mode: 'cors',
-      cache: 'default'
+      }
     };
 
     fetch(FETCH_URL, myOptions)
