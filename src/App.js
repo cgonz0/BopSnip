@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './bopsnip_logo.svg';
 import './App.css';
 import { FormGroup, FormControl, InputGroup, Glyphicon} from 'react-bootstrap';
 import Profile from './Profile';
@@ -77,8 +77,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-       <div className="App-title">BopSnip</div>
-
+       <img src={logo} className="App-logo" alt="logo" />
+       {/* <div className="App-title">BopSnip</div> */}
        <FormGroup>
         <InputGroup>
           <FormControl

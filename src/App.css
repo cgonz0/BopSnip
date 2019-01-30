@@ -1,12 +1,17 @@
 body {
-  background: #268277;
-  color: #9cdcdd;
+  background: #E16661;
+  color: #FFE1E1;
 }
 
 .App {
   text-align: center;
   padding: 5%;
   font-family: Gotham;
+}
+
+.App-logo {
+  height: 36px;
+  margin-bottom: 40px;
 }
 
 .App-title {
@@ -35,7 +40,7 @@ body {
   min-width: 150px;
   max-width: 150px;
   height: 150px;
-  border: 2px solid #9cdcdd;
+  border: 2px solid #FFE1E1;
   border-radius: 75px;
   object-fit: cover;
 }
@@ -110,7 +115,7 @@ body {
   border-radius: 30px;
   width: 60px;
   height: 60px;
-  color: #9cdcdd;
+  color: #FFE1E1;
   padding-top: 13px;
   opacity: .5;
 }
