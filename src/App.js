@@ -20,9 +20,18 @@ class App extends Component {
   }
 
   handleChange = event => {
+    const query = event.target.value;
+    sessionStorage.setItem('query', query); // store the current search term to local storage
     this.setState({
-      query: event.target.value
+      query: query
     });
+  }
+
+  componentWillMount() { // set the previous search term in the state, if it exists in sessionStorage
+    let query = sessionStorage.getItem('query');
+    if (query) {
+        this.setState({ query: query })
+    }
   }
 
   search() {
